@@ -4,7 +4,8 @@ import ClickCountProvider from "./ClickCountContext";
 export default function RootLayout() {
   return (
     <ClickCountProvider>
-      <Stack>
+      <Stack screenOptions={{ headerShown: false }}>
+        {" "}
         {/* Main Tabs */}
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         {/* Fallback or additional screens */}

@@ -18,6 +18,7 @@ const ClickCountProvider = ({ children }: { children: any }) => {
   const [clickCount, setClickCount] = useState(0); // Global state for click count
   const [yourName, setYourName] = useState(""); // Global state for your name
 
+  console.log("yourName🛑🛑", yourName);
   // Authentication state management
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userEmail, setUserEmail] = useState("");

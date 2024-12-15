@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Image,
 } from "react-native";
 import { ClickCountContext } from "./ClickCountContext";
 // import { ClickCountContext } from "./context"; // Import the context
@@ -48,7 +49,6 @@ export default function Login() {
       // Check if credentials match with context values
       if (email === userEmail && password === userPassword) {
         setIsAuthenticated(true); // Update authentication status
-        console.log("Login successful");
         router.push("/home"); // Redirect to home page
       } else {
         setErrors({ ...newErrors, password: "Invalid credentials" }); // Show error if credentials don't match
@@ -60,11 +60,15 @@ export default function Login() {
     <View style={styles.container}>
       {/* Logo */}
       <View style={styles.logoContainer}>
-        <View style={styles.logoBox}></View>
-        <View style={styles.logoBox}></View>
+        <Image
+          source={{
+            uri: "https://res.cloudinary.com/dpk9utvby/image/upload/v1734269998/logo_l5matp.png",
+          }}
+          style={styles.cardImage}
+        />
       </View>
       {/* Login Header */}
-      <Text style={styles.title}>Log In</Text>
+      {/* <Text style={styles.title}>Log In</Text> */}
       {/* Input Fields */}
       <TextInput
         placeholderTextColor="#888"
@@ -164,5 +168,10 @@ const styles = StyleSheet.create({
     color: "red",
     fontSize: 12,
     marginBottom: 10,
+  },
+  cardImage: {
+    height: 150,
+    width: "100%",
+    // backgroundColor: "#f9ff",
   },
 });

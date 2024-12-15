@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Image,
 } from "react-native";
 import { ClickCountContext } from "./ClickCountContext";
 // import { ClickCountContext } from "./context"; // Import the context
@@ -19,10 +20,12 @@ export default function Index() {
     email?: string;
     password?: string;
   }>({});
-  const { setUserEmail, setUserPassword } = useContext(ClickCountContext); // Access context functions
+  const { setUserEmail, setUserPassword, setYourName } =
+    useContext(ClickCountContext); // Access context functions
   const router = useRouter(); // Hook for navigation
 
   const handleSignUp = () => {
+    setYourName(name);
     let formValid = true;
     const newErrors: any = {}; // Store errors to display
 
@@ -65,11 +68,15 @@ export default function Index() {
     <View style={styles.container}>
       {/* Logo */}
       <View style={styles.logoContainer}>
-        <View style={styles.logoBox}></View>
-        <View style={styles.logoBox}></View>
+        <Image
+          source={{
+            uri: "https://res.cloudinary.com/dpk9utvby/image/upload/v1734269998/logo_l5matp.png",
+          }}
+          style={styles.cardImage}
+        />
       </View>
       {/* Sign Up Header */}
-      <Text style={styles.title}>Sign Up</Text>
+      {/* <Text style={styles.title}>Sign Up</Text> */}
       {/* Input Fields */}
       <TextInput
         placeholderTextColor="#888"
@@ -158,6 +165,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 8,
     marginTop: 10,
+  },
+  cardImage: {
+    height: 150,
+    width: "100%",
+    // backgroundColor: "#f9ff",
   },
   buttonText: {
     color: "#fff",
